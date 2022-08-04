@@ -57,9 +57,10 @@ namespace CodingTracker {
             void GetEntries() {
                 Console.WriteLine("\r\nTable of Entries: ");
                 var entries = _databaseManager.GetEntries();
-                foreach (var entry in entries) {
-                    Console.WriteLine(entry.ToString());
-                }
+                //foreach (var entry in entries) {
+                 //   Console.WriteLine(entry.ToString());
+                //}
+                TableVisualizer.WriteTable(entries);
             }
 
             void InsertEntry(){
