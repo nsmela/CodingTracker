@@ -1,36 +1,35 @@
 ﻿using Microsoft.Data.Sqlite;
 
+
 namespace CodingTracker {
     internal class DatabaseManager {
         private string _connectionString;
         private string _tableName;
 
-        public DatabaseManager(string connectionString) {
-            _connectionString = connectionString;
+        public DatabaseManager() {
+            _connectionString = CommandBuilder.CONNECTION_STRING;
         }
 
         internal void CreateTable(string tableName) {
             _tableName = tableName;
 
-            using (var connection = new SqliteConnection(_connectionString)) {
-                connection.Open();
-
-                using (var command = connection.CreateCommand()) {
-                    command.CommandText =
-                        $"CREATE TABLE IF NOT EXISTS {tableName} (" +
-                        $"Id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        $"Date TEXT," +
-                        $"Duration TEXT)";
-
-                    command.ExecuteNonQuery();
-                }
-
-                connection.Close();
-            }
+            string command = CommandBuilder.CreateCodingTable(_tableName);
+            SendCommand(command);
         }
 
         internal void AddEntry(Entry entry) {
-            SendCommand(entry.CommandEntryInsert(_tableName));
+            string command = CommandBuilder.InsertCommand(_tableName, entry);
+            SendCommand(command);
+        }
+
+        internal void UpdateEntry(Entry entry) {
+            string command = CommandBuilder.UpdateCommand(_tableName, entry);
+            SendCommand(command);
+        }
+
+        internal void DeleteEntry(Entry entry) {
+            string command = CommandBuilder.DeleteCommand(_tableName, entry);
+            SendCommand(command);
         }
 
         internal List<Entry> GetEntries() {
@@ -39,15 +38,13 @@ namespace CodingTracker {
             using (var connection = new SqliteConnection(_connectionString)) {
                 connection.Open();
                 using (var command = connection.CreateCommand()) {
-                    command.CommandText = $"SELECT * FROM {_tableName}";
+                    command.CommandText = CommandBuilder.SelectAllCommand(_tableName);
 
                     using (var reader = command.ExecuteReader()) {
-
-
                         while (reader.Read()) {
-                            Entry entry = new Entry { 
+                            Entry entry = new Entry {
                                 Id = reader.GetInt32(0),
-                                Date = DateTime.Parse(reader.GetString(1)),
+                                Date = DateTime.ParseExact(reader.GetString(1), CommandBuilder.DATE_FORMAT, CommandBuilder.CULTURE_PROVIDER),
                                 Duration = TimeSpan.Parse(reader.GetString(2))};
 
                             entries.Add(entry);
@@ -58,10 +55,6 @@ namespace CodingTracker {
             }
 
             return entries;
-        }
-
-        internal Entry GetEntry(int id, SqliteConnection connection) {
-            return null;
         }
 
         void SendCommand(string commandString) {
@@ -76,5 +69,6 @@ namespace CodingTracker {
                 connection.Close();
             }
         }
+
     }
 }

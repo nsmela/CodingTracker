@@ -35,25 +35,23 @@ namespace CodingTracker {
                         return;
                     case '1':
                         GetEntries();
+                        Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
                         break;
                     case '2':
-                        AddEntry();
+                        InsertEntry();
+                        break;
+                    case '3':
+                        UpdateEntry();
+                        break;
+                    case '4':
+                        DeleteEntry();
                         break;
                     default:
                         Console.WriteLine("\r\nInvalid entry! Please try again...");
                         Console.ReadKey();
                         break;
                 }
-            }
-
-            void AddEntry(){
-                var date = GetDateInput();
-                var duration = GetDurationInput();
-
-                Entry entry = new Entry{ Date = date, Duration = duration };
-
-                _databaseManager.AddEntry(entry);
             }
 
             void GetEntries() {
@@ -64,6 +62,55 @@ namespace CodingTracker {
                 }
             }
 
+            void InsertEntry(){
+                var date = GetDateInput();
+                var duration = GetDurationInput();
+
+                Entry entry = new Entry{ Date = date, Duration = duration };
+
+                _databaseManager.AddEntry(entry);
+            }
+
+            void UpdateEntry() {
+                GetEntries();
+                int id = GetIdInput();
+                var date = GetDateInput();
+                var duration = GetDurationInput();
+
+                var entry = new Entry{Id = id, Date = date, Duration = duration };
+                _databaseManager.UpdateEntry(entry);
+                GetEntries();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
+
+            void DeleteEntry() {
+                GetEntries();
+                int id = GetIdInput();
+
+                var entry = new Entry { Id = id };
+                _databaseManager.DeleteEntry(entry);
+                GetEntries();
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
+            
+            int GetIdInput() {
+                string result;
+                int id;
+
+                while (true) {
+                    Console.WriteLine("Enter the ID of the entry to update:");
+                    result = Console.ReadLine();
+
+                    if (Int32.TryParse(result, out id)) break;
+
+                    Console.WriteLine("Invalid entry. Please try again.");
+                }
+
+                return id;
+            }
+
             DateTime GetDateInput() {
                 string result = "";
                 DateTime date;
@@ -72,7 +119,7 @@ namespace CodingTracker {
                     Console.WriteLine("\r\nEnter a date (format: dd-mm-yy):");
                     result = Console.ReadLine();
 
-                    if (DateTime.TryParseExact(result, "dd-mm-yy", new CultureInfo("en-US"), DateTimeStyles.None, out date)) break;
+                    if (DateTime.TryParseExact(result, CommandBuilder.DATE_FORMAT, new CultureInfo("en-US"), DateTimeStyles.None, out date)) break;
 
                     Console.WriteLine("\r\nInvalid entry!");
                 }
@@ -88,7 +135,7 @@ namespace CodingTracker {
                     Console.WriteLine("\r\nEnter the duration (format h:mm)");
                     result = Console.ReadLine();
 
-                    if (TimeSpan.TryParseExact(result, "h\\:mm", CultureInfo.InvariantCulture, out duration)) break;
+                    if (TimeSpan.TryParseExact(result, CommandBuilder.TIME_FORMAT, CultureInfo.InvariantCulture, out duration)) break;
 
                     Console.WriteLine("\r\nInvalid entry!");
                 }
@@ -96,5 +143,7 @@ namespace CodingTracker {
                 return duration;
             }
         }
+
+
     }
 }
