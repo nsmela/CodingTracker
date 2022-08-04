@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker", "CodingTracker\CodingTracker.csproj", "{44F496B9-EF5D-4C6E-ACAE-47A7784A8ED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingTracker", "CodingTracker\CodingTracker.csproj", "{44F496B9-EF5D-4C6E-ACAE-47A7784A8ED9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF9A90BE-A00D-4722-A5A1-9A1A9519F3D1}"
+	ProjectSection(SolutionItems) = preProject
+		db.sqlite = db.sqlite
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "vz3mIXYjcFKYaZ4TQarhmok5uY0p9qaeTe1uDj8fHXsiEDG1uPhrmXOazdPTXC/S3MFEXB7HgIQ7nc84SAV4zA==",
+  "dgSpecHash": "pE5dL7+GME67ys071rlOfIgCGlPHS8hHO5pvaJoBsU+a58M1L1l8fXcOmMX5ldIWvIoBPLjwELSCNfE90Vcc+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\nsmel\\Documents\\Programming\\CodingTracker\\CodingTracker\\CodingTracker.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nsmel\\.nuget\\packages\\consoletableext\\3.2.0\\consoletableext.3.2.0.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\microsoft.data.sqlite\\7.0.0-preview.6.22329.4\\microsoft.data.sqlite.7.0.0-preview.6.22329.4.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.0-preview.6.22329.4\\microsoft.data.sqlite.core.7.0.0-preview.6.22329.4.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0-preview.6.22324.4\\microsoft.win32.systemevents.7.0.0-preview.6.22324.4.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.0\\sqlitepclraw.bundle_e_sqlite3.2.1.0.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\sqlitepclraw.core\\2.1.0\\sqlitepclraw.core.2.1.0.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.0\\sqlitepclraw.lib.e_sqlite3.2.1.0.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.0\\sqlitepclraw.provider.e_sqlite3.2.1.0.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0-preview.6.22324.4\\system.configuration.configurationmanager.7.0.0-preview.6.22324.4.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\system.drawing.common\\7.0.0-preview.6.22324.4\\system.drawing.common.7.0.0-preview.6.22324.4.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\system.security.cryptography.protecteddata\\7.0.0-preview.6.22324.4\\system.security.cryptography.protecteddata.7.0.0-preview.6.22324.4.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\system.security.permissions\\7.0.0-preview.6.22324.4\\system.security.permissions.7.0.0-preview.6.22324.4.nupkg.sha512",
+    "C:\\Users\\nsmel\\.nuget\\packages\\system.windows.extensions\\7.0.0-preview.6.22324.4\\system.windows.extensions.7.0.0-preview.6.22324.4.nupkg.sha512"
+  ],
   "logs": []
 }

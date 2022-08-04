@@ -39,6 +39,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "ConsoleTableExt": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.0-preview.6.22329.4, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-preview.6.22324.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
